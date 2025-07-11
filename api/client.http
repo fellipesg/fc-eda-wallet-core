@@ -1,0 +1,37 @@
+
+POST http://localhost:8080/clients HTTP/1.1
+Content-Type: application/json
+
+{
+    "name": "Jane Doe",
+    "email": "jane@j.com"
+}
+
+###
+
+POST http://localhost:8080/accounts HTTP/1.1
+Content-Type: application/json
+
+{
+    "client_id": "59f914c3-9a89-4bea-8aab-0f3798781b4e"
+}
+
+###
+
+POST http://localhost:8080/transactions HTTP/1.1
+Content-Type: application/json
+
+{
+    "account_id_from": "e2a9ed94-18fc-41a7-8eb4-d7c5e155576d",
+    "account_id_to": "aed5db83-1a6e-465b-bb12-e95361d25d1a",
+    "amount": 50
+}
+
+### Get balance for a specific account
+GET http://localhost:3003/api/balances/e2a9ed94-18fc-41a7-8eb4-d7c5e155576d
+Accept: application/json
+
+
+### Get balance for a specific account that does not exist
+GET http://localhost:3003/api/balances/e2a9ed94-18fc-41a7-8eb4-d7c5e155576e
+Accept: application/json
